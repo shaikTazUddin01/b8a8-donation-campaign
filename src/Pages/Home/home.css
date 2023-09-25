@@ -1,0 +1,12 @@
+.banner{
+    background-image:url('../../assets/Rectangle4281.png') ;
+    size: cover;
+    max-height: 500px;
+}
+.banner-overlay{
+    background-color: white;
+    opacity: .9;
+}
+.home-text{
+color:black;
+}
