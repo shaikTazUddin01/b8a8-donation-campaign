@@ -3,7 +3,6 @@ import Donation from '../Donation/Donation';
 import { NavLink } from 'react-router-dom';
 
 const Donations = ({donations}) => {
-    // const newLocal = '/donationdetails';
     return (
         <div>
            

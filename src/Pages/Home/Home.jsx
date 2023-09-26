@@ -12,14 +12,16 @@ const Home = () => {
 
     const scarch=useRef();
     const handlescarch=()=>{
-        const getScarchValue=scarch.current.value;
-
+        const scarchValue=scarch.current.value
+        const getScarchValue=scarchValue.toLowerCase();
+ console.log(getScarchValue)
         // setScarchvalue(getScarchValue)
-        const filterData=donations.filter(data=>data.Category===getScarchValue)
+        const filterData=donations.filter(data=>(data.Category).toLowerCase()===getScarchValue)
         setCategory(filterData)
-        if (category.length===0) {
-            setFind(true)
-        }
+        setFind(true)
+        // if (category<1) {
+        //     toast.error("No Category found. Write Correct Category")
+        // }
         // console.log(filterData)
     }
     
@@ -34,8 +36,8 @@ const Home = () => {
                         <div className="home-text">
                             <h1 className="mb-5 text-5xl font-bold">I Grow By Helping People In Need</h1>
                             <div className='mt-10'>
-                                <input type="text" ref={scarch} className="w-2/3 p-3 rounded-l border" placeholder="scarch here..." />
-                                <button className="bg-[#FF444A] text-white py-3 px-5 text-[16px] font-semibold rounded-r " onClick={handlescarch}>Scarch</button>
+                                <input type="text" ref={scarch} className="w-2/3 p-3 rounded-l border" placeholder="category search here..." />
+                                <button className="bg-[#FF444A] text-white py-3 px-6 text-[16px] font-semibold rounded-r " onClick={handlescarch}>Scarch</button>
                                 {/* <button className='bg-[#FF444A] text-white p-3 rounded-r '>search</button> */}
                             </div>
                         </div>
@@ -45,14 +47,14 @@ const Home = () => {
             <section className='max-w-7xl mx-auto mt-20'>
                
             {
-                    // !find ?
-                    Array.isArray(category) && category.length>0?<Donations donations={category}></Donations>
-                    :<Donations donations={donations}></Donations>
-                    // : <div>No Data Found</div>
+                    category.length>0 || !find?
+                    (Array.isArray(category) && category.length>0?<Donations donations={category}></Donations>
+                    :<Donations donations={donations}></Donations>)
+                    : (<div className='text-4xl font-semibold flex justify-center items-center'>No Category Found</div>)
                 }
                 
             </section>
-            <ToastContainer></ToastContainer>
+            {/* <ToastContainer></ToastContainer> */}
         </div>
     );
 };

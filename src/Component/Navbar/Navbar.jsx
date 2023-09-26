@@ -1,44 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './navbar.css'
-import logo from '../../assets/Logo.png'
+import logo from '/Logo.png'
 const Navbar = () => {
-    const navitem = <>
-
-
-    </>
+    
     return (
-        // <div className="max-w-7xl mx-auto">
-        //     <div className="navbar bg-base-100">
-        //         <div className="navbar-start">
-        //             <div className="dropdown">
-        //                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
-        //                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-        //                 </label>
-        //                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        //                     {navitem}
-        //                 </ul>
-        //             </div>
-        //             <a className="">
-        //                 <img src={logo} alt="" />
-        //             </a>
-        //         </div>
-        //         <div className="navbar-end hidden lg:flex">
-        //             <ul className="menu menu-horizontal px-1">
-        //                 {navitem}
-        //             </ul>
-        //         </div>
-        //     </div>
-        // </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-5 max-w-6xl mx-auto my-5">
             <div className="">
-                <img src={logo} alt="" />
+                <Link to='/'>
+                <img src={logo} alt="" className="w-[90%]"/>
+                </Link>
             </div>
             <div>
-                <ul className="flex gap-3">
-                    <li><NavLink to='/' >Home</NavLink></li>
-                    <li><NavLink to='/donation'>Donation</NavLink></li>
-                    <li><NavLink to='/statistics'>Statistics</NavLink></li>
+                <ul className="flex gap-5 text-lg font-semibold">
+                    <NavLink to='/' ><li>Home</li></NavLink>
+                    <NavLink to='/donation'><li>Donation</li></NavLink>
+                    <NavLink to='/statistics'><li>Statistics</li></NavLink>
                 </ul>
             </div>
         </div>
