@@ -8,6 +8,7 @@ const Home = () => {
     const donations = useLoaderData();
 
     const [category,setCategory]=useState([]);
+    const [find,setFind]=useState(false);
 
     const scarch=useRef();
     const handlescarch=()=>{
@@ -17,9 +18,9 @@ const Home = () => {
         const filterData=donations.filter(data=>data.Category===getScarchValue)
         setCategory(filterData)
         if (category.length===0) {
-           toast.error("No Data found")
+            setFind(true)
         }
-        console.log(filterData)
+        // console.log(filterData)
     }
     
     
@@ -42,10 +43,12 @@ const Home = () => {
                 </div>
             </section>
             <section className='max-w-7xl mx-auto mt-20'>
-                {/* <h1>{donations.length}</h1> */}
-                {
+               
+            {
+                    // !find ?
                     Array.isArray(category) && category.length>0?<Donations donations={category}></Donations>
                     :<Donations donations={donations}></Donations>
+                    // : <div>No Data Found</div>
                 }
                 
             </section>

@@ -7,7 +7,7 @@ const Donations = ({donations}) => {
     return (
         <div>
            
-            <div className='grid grid-cols-4 gap-5'>
+            <div className='grid grid-cols-1 p-5 md:grid-cols-3 lg:grid-cols-4 gap-5'>
             {donations?.map(donation=><Donation key={donation.id} donation={donation}></Donation>)}
             </div>
        
