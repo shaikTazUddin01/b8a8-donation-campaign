@@ -1,31 +1,28 @@
 import { useLoaderData } from 'react-router-dom';
 import Donations from '../../Component/Home/Donations/Donations';
 import './home.css'
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useRef, useState } from 'react';
 const Home = () => {
     const donations = useLoaderData();
 
-    const [category,setCategory]=useState([]);
-    const [find,setFind]=useState(false);
+    const [category, setCategory] = useState([]);
+    const [find, setFind] = useState(false);
 
-    const scarch=useRef();
-    const handlescarch=()=>{
-        const scarchValue=scarch.current.value
-        const getScarchValue=scarchValue.toLowerCase();
- console.log(getScarchValue)
-        // setScarchvalue(getScarchValue)
-        const filterData=donations.filter(data=>(data.Category).toLowerCase()===getScarchValue)
+    const scarch = useRef();
+    const handlescarch = () => {
+        const scarchValue = scarch.current.value
+        const getScarchValue = scarchValue.toLowerCase();
+        //  console.log(getScarchValue)
+
+        const filterData = donations.filter(data => (data.Category).toLowerCase() === getScarchValue)
         setCategory(filterData)
         setFind(true)
-        // if (category<1) {
-        //     toast.error("No Category found. Write Correct Category")
-        // }
-        // console.log(filterData)
+
     }
-    
-    
+
+
 
     return (
         <div>
@@ -45,14 +42,14 @@ const Home = () => {
                 </div>
             </section>
             <section className='max-w-7xl mx-auto mt-20'>
-               
-            {
-                    category.length>0 || !find?
-                    (Array.isArray(category) && category.length>0?<Donations donations={category}></Donations>
-                    :<Donations donations={donations}></Donations>)
-                    : (<div className='text-4xl font-semibold flex justify-center items-center'>No Category Found</div>)
+
+                {
+                    category.length > 0 || !find ?
+                        (Array.isArray(category) && category.length > 0 ? <Donations donations={category}></Donations>
+                            : <Donations donations={donations}></Donations>)
+                        : (<div className='text-4xl font-semibold flex justify-center items-center mb-10'>No Category Found</div>)
                 }
-                
+
             </section>
             {/* <ToastContainer></ToastContainer> */}
         </div>

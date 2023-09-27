@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ShowDonation from './ShowDonation';
 
 
@@ -33,7 +33,7 @@ const Donation = () => {
             <div className='flex justify-center my-10'>
                 {
 
-                    getDonation?.length >= 4 && !showMore &&
+                    getDonation?.length > 4 && !showMore &&
                     <button className='btn btn-success bg-green-600 text-white' onClick={handleShow}>Show All</button>
                 }
             </div>

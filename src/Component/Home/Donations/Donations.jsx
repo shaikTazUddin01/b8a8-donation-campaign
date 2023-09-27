@@ -1,6 +1,5 @@
-import React from 'react';
 import Donation from '../Donation/Donation';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 const Donations = ({donations}) => {
     return (
